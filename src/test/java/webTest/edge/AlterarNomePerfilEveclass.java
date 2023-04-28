@@ -28,9 +28,6 @@ public class AlterarNomePerfilEveclass {
 
     @BeforeEach
     public void setUp() throws IOException {
-
-        // Aponta onde está o Chrome Driver
-        //System.setProperty("webdriver.edge.driver", "drivers/edge/msedgedriver.exe");
         WebDriverManager.edgedriver().setup();
         EdgeOptions options = new EdgeOptions();
         // Configurações adicionais, se necessário
@@ -82,7 +79,7 @@ public class AlterarNomePerfilEveclass {
         inputNome.sendKeys(Keys.CONTROL + "a");
         inputNome.sendKeys(Keys.BACK_SPACE);
         // Insere o texto "cris" no campo de entrada de texto
-        inputNome.sendKeys("Cristianoo");
+        inputNome.sendKeys("Cristiano Cid");
 
         // Aciona o botão "Salvar Alterações"
         driver.findElement(By.xpath("//*[@id=\"account-panel\"]/div[2]/div/div/div/div/div[1]/section/form/button")).click();
@@ -90,6 +87,7 @@ public class AlterarNomePerfilEveclass {
 
         // Verifica se o texto esperado é igual ao texto atual
         assertThat(driver.findElement(By.id("swal2-title")).getText(), is("Perfil editado com successo!"));
+        System.out.println("Perfil editado com Sucesso!");
 
         // Gera um print-screen do final do Teste para verificação
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);

@@ -71,8 +71,10 @@ public class AlterarNomePerfilEveclass {
         // Aciona o botão "Entrar"
         driver.findElement(By.xpath("//*[@id=\"auth-panel\"]/div[2]/div/div/div/div/div[2]/div/form/div[2]/button")).click();
 
+        // Aciona o botão "Menu de Usuário"
         driver.findElement(By.cssSelector("div.user-avatar.avatar-initials")).click();
 
+        // Aciona o botão "Perfil do Usuário"
         driver.findElement(By.cssSelector(".fal.fa-user-circle")).click();
 
         // Seleciona o Input "Nome"
@@ -82,7 +84,7 @@ public class AlterarNomePerfilEveclass {
         inputNome.sendKeys(Keys.CONTROL + "a");
         inputNome.sendKeys(Keys.BACK_SPACE);
         // Insere o texto "cris" no campo de entrada de texto
-        inputNome.sendKeys("Cristianos");
+        inputNome.sendKeys("Cristiano Cid Bonfim");
 
         // Aciona o botão "Salvar Alterações"
         driver.findElement(By.xpath("//*[@id=\"account-panel\"]/div[2]/div/div/div/div/div[1]/section/form/button")).click();
@@ -90,6 +92,7 @@ public class AlterarNomePerfilEveclass {
 
         // Verifica se o texto esperado é igual ao texto atual
         assertThat(driver.findElement(By.id("swal2-title")).getText(), is("Perfil editado com successo!"));
+        System.out.println("Perfil editado com Sucesso!");
 
         // Gera um print-screen do final do Teste para verificação
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
